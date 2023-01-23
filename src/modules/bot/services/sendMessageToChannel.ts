@@ -9,15 +9,10 @@ export default function sendMessageToChannel(
   const channel = client.channels.cache.get(channelId) as TextChannel;
 
   if (!message || message.trim() === '') {
-    throw new Error(
-      'Mensagem não enviada: corpo da mensagem não pode ser vazio.'
-    );
+    throw new Error('O corpo da mensagem não pode ser vazio.');
   }
 
-  if (!channel)
-    throw new Error(
-      'Mensagem não enviada: o ID do canal informado é inválido.'
-    );
+  if (!channel) throw new Error('O ID do canal informado é inválido.');
 
   channel.send(message.trim());
 }
