@@ -2,7 +2,7 @@
 
 import { GuildMemberRoleManager, Interaction } from 'discord.js';
 
-export default function userHasHole(
+export default function userHasRole(
   interaction: Interaction,
   role: string
 ): boolean {

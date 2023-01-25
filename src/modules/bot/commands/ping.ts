@@ -3,7 +3,7 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, Client, TextChannel } from 'discord.js';
 import DiscordRoles from '../config/DiscordRoles';
-import userHasHole from '../utils/userHasRole';
+import userHasRole from '../utils/userHasRole';
 const ping = require('net-ping');
 
 export const data = new SlashCommandBuilder()
@@ -26,7 +26,7 @@ export async function execute(interaction: CommandInteraction, client: Client) {
   )) as TextChannel;
   if (!channel || channel.type !== 'GUILD_TEXT') return;
 
-  if (!userHasHole(interaction, DiscordRoles.DEV)) {
+  if (!userHasRole(interaction, DiscordRoles.DEV)) {
     return interaction.reply(
       'Você não tem permissão para executar este comando.'
     );
